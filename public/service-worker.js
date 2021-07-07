@@ -1,12 +1,12 @@
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
-    '/favorites.html',
-    '/topic.html',
+    '/index.js',
+    '/indexedDB.js',
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
     '/style.css',
-    '/dist/app.bundle.js',
-    '/dist/favorites.bundle.js',
-    '/dist/topic.bundle.js',
+    '/manifest.webmanifest',
     'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
 ];
 
