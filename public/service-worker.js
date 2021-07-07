@@ -7,7 +7,6 @@ const FILES_TO_CACHE = [
     '/icons/icon-512x512.png',
     '/style.css',
     '/manifest.webmanifest',
-    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
 ];
 
 const PRECACHE = 'precache-v1';
