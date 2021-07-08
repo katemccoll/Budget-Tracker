@@ -1,10 +1,11 @@
 let db;
-let budgetVersion
 
-const request = window.indexedDB.open("budget", budgetVersion || 3);
+const request = window.indexedDB.open("budget", 1);
 
 request.onupgradeneeded = event => {
-    event.target.result.createObjectStore("budget", {keyPath: "_id"});
+    db = event.target.result;
+
+    db.createObjectStore("budget", { autoIncrement: true });
 };
 
 request.onsuccess = event => {
@@ -15,6 +16,10 @@ request.onsuccess = event => {
     }
 };
 
+request.onerror = (error) => {
+    console.error(error);
+};
+
 function collectData() {
     let transaction = db.transaction(["budget"], "readwrite");
     const budgetStore = transaction.objectStore("budget");
@@ -22,7 +27,7 @@ function collectData() {
 
     getAll.onsuccess = () => {
         if (getAll.result.length > 0) {
-            fetch('/api/transaction/bulk', {
+            fetch('/api/transaction', {
                 method: 'POST',
                 body: JSON.stringify(getAll.result),
                 headers: {
